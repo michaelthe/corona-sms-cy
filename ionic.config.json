@@ -1,0 +1,7 @@
+{
+  "name": "corona-sms-cy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
