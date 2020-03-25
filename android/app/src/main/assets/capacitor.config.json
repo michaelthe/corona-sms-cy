@@ -2,7 +2,6 @@
   "appId": "com.devlab13.corona-sms-cy",
   "appName": "corona-sms-cy",
   "bundledWebRuntime": false,
-  "linuxAndroidStudioPath": "/home/michael/.local/share/JetBrains/Toolbox/apps/AndroidStudio/ch-0/192.6241897/bin/studio.sh",
   "npmClient": "npm",
   "webDir": "www",
   "cordova": {}
