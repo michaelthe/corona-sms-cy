@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SMS} from '@ionic-native/sms/ngx';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
-import {Platform} from '@ionic/angular';
+import {AlertController, Platform} from '@ionic/angular';
 
 @Component({
     selector: 'app-sms',
@@ -9,28 +9,38 @@ import {Platform} from '@ionic/angular';
     styleUrls: ['sms-page.component.scss']
 })
 export class SmsPage implements OnInit {
-    id: string;
-    message: string;
-    postCode: string;
-
     constructor(
         private sms: SMS,
         private platform: Platform,
         private nativeStorage: NativeStorage,
+        private alertController: AlertController
     ) {
     }
 
+    get id() {
+        return (window as any).id;
+    }
+
+    get postCode() {
+        return (window as any).postCode;
+    }
+
     ngOnInit(): void {
-        console.log('loading config')
-        this.platform
-            .ready()
-            .then(() => {
-                this.nativeStorage.getItem('id').then(v => this.id = v);
-                this.nativeStorage.getItem('post-code').then(v => this.postCode = v);
-            });
+        console.log('loading config');
     }
 
     send(type) {
-        this.sms.send('8998', `${type} ${this.id} ${this.postCode}`);
+        const message = `${type} ${this.id} ${this.postCode}`;
+        this.sms
+            .send('8998', message)
+            .then(() => {
+                return this.alertController.create({
+                    header: 'Message Send',
+                    subHeader: 'The following message has been sent to 8998',
+                    message,
+                    buttons: ['OK']
+                });
+            })
+            .then(a => a.present());
     }
 }

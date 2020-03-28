@@ -27,10 +27,14 @@
         </ng-template>
 
         <ion-card-content *ngIf="id && postCode">
-            <ion-item>
-                <ion-label>asdf</ion-label>
-                <ion-button (click)="send(1)">asdf</ion-button>
-            </ion-item>
+            <ion-button (click)="send(1)" expand="block">Pharmacy/doctor</ion-button>
+            <ion-button (click)="send(2)" expand="block">Supermarket/service</ion-button>
+            <ion-button (click)="send(3)" expand="block">State services</ion-button>
+            <ion-button (click)="send(4)" expand="block">Bank</ion-button>
+            <ion-button (click)="send(5)" expand="block">Help person in need</ion-button>
+            <ion-button (click)="send(6)" expand="block">Walk a pet</ion-button>
+            <ion-button (click)="send(7)" expand="block">Funeral/wedding/baptism</ion-button>
+            <ion-button (click)="send(8)" expand="block">Other</ion-button>
         </ion-card-content>
     </ion-card>
 </ion-content>

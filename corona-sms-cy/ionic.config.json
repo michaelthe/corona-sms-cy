@@ -1,7 +1,0 @@
-{
-  "name": "corona-sms-cy",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
